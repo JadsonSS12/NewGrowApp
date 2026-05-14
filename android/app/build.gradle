@@ -53,6 +53,9 @@ react {
 
     /* Autolinking */
     autolinkLibrariesWithApp()
+
+    hermesEnabled = true
+    newArchEnabled = true
 }
 
 /**
@@ -117,4 +120,6 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation("io.github.thanosfisherman.wifiutils:wifiutils:1.6.6")
 }

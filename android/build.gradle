@@ -12,10 +12,21 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("com.android.tools.build:gradle:8.7.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        // Não adicione o react-native-gradle-plugin aqui como classpath
     }
 }
 
-apply plugin: "com.facebook.react.rootproject"
+// ESTA É A FORMA CORRETA DE APLICAR O PLUGIN NO RN ATUAL:
+plugins {
+    id("com.facebook.react.rootproject")
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        maven { url 'https://jitpack.io' }
+    }
+}
